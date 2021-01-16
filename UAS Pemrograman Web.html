@@ -1,0 +1,223 @@
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>UAS Web Programming 1</title>
+    </head>
+    
+    <body>
+        <div style='border-style: solid; height: 70%; width: 70%; margin: auto; padding: 40px; padding-bottom: 200px;'>
+
+            <p style="text-align:center;">
+                <img  alt="gambar" src="AB.png" style=" align=center width: 55px; height:55px" /> <br>
+                <br>
+                <b>KAMPUS STMIK ANTAR BANGSA <br>
+                TANGERANG - BANTEN <br> </b>
+                <hr>
+            </p>
+            <h2 align=center> UAS Web Programming 1 </h2> <br><br>
+
+            <div style="float: left; margin-right: 50px;">
+                ***Pemesanan Tiket Maskapai*** <br>
+                <br>
+                ======= <br>
+                <br>
+                <br>
+                <table>
+                    <tr>
+                        <td>Nama</td>
+                        <td>:</td>
+                        <td><input type="text" id="nama" name="nama" size="40"></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Tiket</td>
+                        <td>:</td>
+                        <td><input type="text" id="jumlah" name="jumlah" size="40"></td>
+                    </tr>
+                    <tr>
+                        <td>Kelas</td>
+                        <td>:</td>
+                        <td>
+                            <select name="kelas" id="kelas">
+                                <option id="kelas" value="Ekonomi">Ekonomi</option>
+                                <option id="kelas" value="Bisnis">Bisnis</option>
+                                <option id="kelas" value="Eksekutif">Eksekutif</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tujuan</td>
+                        <td>:</td>
+                        <td>
+                            <select name="tujuan" id="tujuan">
+                                <option id="tujuan" value="New Zealand">New Zealand</option>
+                                <option id="tujuan" value="Australia">Australia</option>
+                                <option id="tujuan" value="Singapore">Singapore</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Bagasi</td>
+                        <td>:</td>
+                        <td>
+                            <input type="radio" id="bagasi" name="bagasi" value="5kg"><label for="5kg">5 Kg</label>
+                            <input type="radio" id="bagasi" name="bagasi" value="10kg"><label for="10kg">10 Kg</label>
+                            <input type="radio" id="bagasi" name="bagasi" value="15kg"><label for="15kg">15 Kg</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Asuransi</td>
+                        <td>:</td>
+                        <td>
+                            <input type="checkbox" name="asuransi" id="asuransi" value="jiwa"><label for="Jiwa">Asuransi Jiwa</label> <br>
+                            <input type="checkbox" name="asuransi" id="asuransi" value="kecelakaan"><label for="Kecelakaan">Asuransi Kecelakaan</label> <br>
+                            <input type="checkbox" name="asuransi" id="asuransi" value="terlambat"><label for="Keterlambatan">Asuransi Keterlambatan</label> <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" name="submit" value="Kirim" id="kirim" />
+                            <input type="reset" name="reset" value="Batal" id="batal"/>
+                        </td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div>
+                ***Data Pemesanan Tiket*** <br>
+                <br>
+                ======= <br>
+                <br>
+                <br>
+                <table>
+                    <tr>
+                        <td>Nama Pemesan</td>
+                        <td>:</td>
+                        <td id="tampilnama"></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah</td>
+                        <td>:</td>
+                        <td id="tampiljumlah"></td>
+                    </tr>
+                    <tr>
+                        <td>Kelas</td>
+                        <td>:</td>
+                        <td id="tampilkelas"></td>
+                    </tr>
+                    <tr>
+                        <td>Tujuan</td>
+                        <td>:</td>
+                        <td id="tampiltujuan"></td>
+                    </tr>
+                    <tr>
+                        <td>Bagasi</td>
+                        <td>:</td>
+                        <td id="tampilbagasi"></td>
+                    </tr>
+                    <tr>
+                        <td>Asuransi</td>
+                        <td>:</td>
+                        <td id="tampilasuransi"></td>
+                    </tr>
+                    <tr>
+                        <td>Total Harga</td>
+                        <td>:</td>
+                        <td id="tampiltotal"></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+        <script>
+            let kirim = document.getElementById("kirim");
+            kirim.addEventListener
+                ('click', function()
+                    {
+                        let nama            = document.getElementById("nama").value;
+
+                        let jumlah          = document.getElementById("jumlah").value;
+                            if (jumlah > 3)
+                                {
+                                    diskon = 30;
+                                }
+                            else
+                                {
+                                    diskon = 0;
+                                }
+
+
+                        let kelas           = document.getElementById("kelas").value;
+                            if (kelas == "Ekonomi")
+                                {
+                                    hrgTiket = 1000000;
+                                    kelas = `${kelas} (Air Mineral)`;
+                                }
+                            else if (kelas == "Bisnis")
+                                {
+                                    hrgTiket = 2000000;
+                                    kelas = `${kelas} (Snack)`;
+                                }
+                            else 
+                                {
+                                    hrgTiket = 3000000;
+                                    kelas = `${kelas} (Makan)`;
+                                }
+
+                        let tujuan          = document.getElementById("tujuan").value;
+
+                        let bagasi          = document.querySelector("input[name='bagasi']:checked").value;
+                            if (bagasi == "5kg")
+                                {
+                                    hrgBagasi = 100000;
+                                    bagasi = `${bagasi} (${hrgBagasi})`;
+                                }
+                            else if (bagasi == "10kg")
+                                {
+                                    hrgBagasi = 150000;
+                                    bagasi = `${bagasi} (${hrgBagasi})`;
+                                }
+                            else 
+                                {
+                                    hrgBagasi = 200000;
+                                    bagasi = `${bagasi} (${hrgBagasi})`;
+                                }
+                        
+                        let array_asuransi  = document.querySelectorAll("input[name='asuransi']:checked");
+                        tempArray = [];
+
+                        for (var i = 0; i < array_asuransi.length; i++)
+                            {
+                                tempArray.push(array_asuransi[i].value);
+                                asuransi = tempArray.join(", ");
+                            }
+
+                            hrgAsuransi = array_asuransi.length * 50000;
+                            asuransi = `${asuransi} (${hrgAsuransi})`;
+
+                        tiket = hrgTiket * diskon / 100;
+                        total = tiket + hrgBagasi + hrgAsuransi;
+                        
+                        document.getElementById("tampilnama").innerHTML = nama;
+                        document.getElementById("tampiljumlah").innerHTML = jumlah;
+                        document.getElementById("tampilkelas").innerHTML = kelas;
+                        document.getElementById("tampiltujuan").innerHTML = tujuan;
+                        document.getElementById("tampilbagasi").innerHTML = bagasi;
+                        document.getElementById("tampilasuransi").innerHTML = asuransi;
+                        document.getElementById("tampiltotal").innerHTML = total;
+                        
+                    }
+                );
+        </script>
+    </body>
+
+</html>
